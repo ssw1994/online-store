@@ -1,0 +1,11 @@
+.auth {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth .MuiCard-root {
+  min-height: 400px;
+  min-width: 400px;
+}

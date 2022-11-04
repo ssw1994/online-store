@@ -1,0 +1,26 @@
+#root {
+  width: 100%;
+}
+
+.App,
+.app-container {
+  height: 100%;
+  max-width: 100% !important;
+}
+
+* {
+  color: var(--color);
+}
+
+header,
+footer,
+.app-body {
+  height: 20%;
+  width: 100%;
+  margin: 5px 0;
+  background-color: var(--background);
+}
+
+.app-body {
+  height: calc(100% - 20%);
+}

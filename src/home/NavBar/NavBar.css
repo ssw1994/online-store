@@ -1,0 +1,29 @@
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  justify-content: space-evenly;
+  margin: 5px 0;
+  background: var(--background-secondary);
+  padding: 10px 0;
+}
+
+.nav-link {
+  padding: 10px;
+  border: 1px solid var(--background);
+  border-radius: 15px;
+}
+.nav-link:hover {
+  color: var(--background);
+  background-color: white;
+}
+
+.MuiDrawer-paper {
+  width: 25%;
+}
+
+@media screen and (max-width: 420px) {
+  .MuiDrawer-paper {
+    width: 100%;
+  }
+}

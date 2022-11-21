@@ -1,0 +1,10 @@
+.fab-add-blog {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background: burlywood;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 50%;
+  height: 60px;
+}

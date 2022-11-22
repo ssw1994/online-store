@@ -14,8 +14,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --background: #57bc90;
-  --background-secondary: #015249;
+  --background: whitesmoke;
+  --background-secondary: white;
   --color: black;
 }
 

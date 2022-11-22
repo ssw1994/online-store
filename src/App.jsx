@@ -17,11 +17,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import BlogApp from "./tutorails/BlogApp/BlogApp";
+import { SankeGame } from "./tutorails/SnakeGame/SnakeGame";
 
 export const App = () => {
   return (
     <div>
       <BlogApp />
+      {/* <SankeGame /> */}
     </div>
   );
 };

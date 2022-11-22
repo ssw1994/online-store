@@ -12,7 +12,13 @@ export class Blog {
       upvote: null,
       downvote: null,
     };
-    this.comments = [];
+    this.comments = [
+      new Comment(
+        "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided",
+        "esachin",
+        this.blogId
+      ),
+    ];
   }
 }
 

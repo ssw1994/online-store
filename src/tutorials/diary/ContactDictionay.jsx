@@ -1,5 +1,11 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import { useReducer } from "react";
 import React from "react";
-export function reducer(state, action) {
+const StateContext = React.createContext(null);
+const DispatchContext = React.createContext(null);
+
+function reducer(state, action) {
   //type compulary , payload
   switch (action.type) {
     case "ADD":
@@ -28,7 +34,7 @@ export function reducer(state, action) {
   }
 }
 
-export const DisplayDetails = () => {
+const DisplayDetails = () => {
   const { selectedItem } = React.useContext(StateContext);
   const dispatch = React.useContext(DispatchContext);
   const deleteItem = () => {
@@ -53,7 +59,7 @@ export const DisplayDetails = () => {
   );
 };
 
-export const DisplayList = () => {
+const DisplayList = () => {
   const state = React.useContext(StateContext);
   const dispatch = React.useContext(DispatchContext);
   const selectItem = (item) => {
@@ -102,7 +108,7 @@ class Diary {
   }
 }
 
-export const AddItem = () => {
+const AddItem = () => {
   //const state = React.useContext(StateContext);
   const dispatch = React.useContext(DispatchContext);
   const [dairyItem, updateDiary] = React.useState(new Diary());
@@ -135,3 +141,54 @@ export const AddItem = () => {
     </div>
   );
 };
+
+export function ContactDictionary() {
+  const [state, dispatch] = useReducer(reducer, {
+    list: [],
+    selectedItem: null,
+  });
+  return (
+    <StateContext.Provider value={state}>
+      <DispatchContext.Provider value={dispatch}>
+        <div style={{ padding: "15px", display: "flex" }}>
+          <div
+            style={{
+              width: "33%",
+              border: "1px solid black",
+              margin: "0 15px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <AddItem />
+          </div>
+          <div
+            style={{
+              width: "33%",
+              border: "1px solid black",
+              margin: "0 15px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <DisplayList />
+          </div>
+          <div
+            style={{
+              width: "33%",
+              border: "1px solid black",
+              margin: "0 15px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <DisplayDetails />
+          </div>
+        </div>
+      </DispatchContext.Provider>
+    </StateContext.Provider>
+  );
+}

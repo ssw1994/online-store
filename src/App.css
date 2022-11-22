@@ -8,10 +8,6 @@
   max-width: 100% !important;
 }
 
-* {
-  color: var(--color);
-}
-
 header,
 footer,
 .app-body {
@@ -23,4 +19,8 @@ footer,
 
 .app-body {
   height: calc(100% - 20%);
+}
+
+a.active{
+  background-color: yellow;
 }

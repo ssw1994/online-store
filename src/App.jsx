@@ -13,6 +13,9 @@ import { Login } from "./auth/Login/Login";
 import { Register } from "./auth/Register/Register";
 import { VarientContext } from "./shared/contexts";
 import config from "./config";
+import { ContactDictionary } from "./tutorials/diary/ContactDictionay";
+import TutorialLayout from "./tutorials/TutorialLayout";
+import BlogApp from "./tutorials/BlogApp/BlogApp";
 
 function App() {
   return (
@@ -20,6 +23,10 @@ function App() {
       <div className="App">
         <Router>
           <Routes>
+            <Route path="/tutorials" element={<TutorialLayout />}>
+              <Route path="dictionary" element={<ContactDictionary />}></Route>
+              <Route path="blogs" element={<BlogApp />}></Route>
+            </Route>
             <Route path="/" element={<AppLayout />}>
               <Route path="/" element={<HomeRouter />}></Route>
             </Route>

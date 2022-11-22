@@ -9,7 +9,7 @@ export class Blog {
     this.title = title;
     this.description = description;
     this.statistics = {
-      upvote: null,
+      upvote: 10,
       downvote: null,
     };
     this.comments = [

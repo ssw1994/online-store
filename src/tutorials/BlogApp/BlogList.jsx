@@ -6,9 +6,14 @@ import { StateContext } from "./context";
  * @function BlogList
  **/
 
-export const BlogList = (props) => {
-  const { blogList } = useContext(StateContext);
+export const BlogList = () => {
+  const { blogList } = useContext(StateContext); //[{title,description,statistics:{upvote,downvote}}]
   console.log(blogList);
+
+  if (blogList?.length <= 0) {
+    return <h1>No blogs available</h1>;
+  }
+
   return (
     <div className="blog-list">
       {blogList.map((blog) => {

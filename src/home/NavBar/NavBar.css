@@ -2,10 +2,21 @@
   display: flex;
   flex-direction: row;
   flex: auto;
-  justify-content: space-evenly;
   margin: 5px 0;
   background: var(--background-secondary);
   padding: 10px 0;
+}
+
+.nav-bar .menus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: -webkit-fill-available;
+}
+
+button.active {
+  color: var(--background);
+  background-color: white;
 }
 
 .nav-link {
@@ -27,10 +38,10 @@
     width: 100%;
   }
 }
-.submenus{
-   position: relative;
-   top:100px;
-   right: 100px;
-   width: calc(100% - 30px);
-   box-shadow: 10px 10px 10px lightgray;
+.submenus {
+  position: relative;
+  top: 100px;
+  right: 100px;
+  width: calc(100% - 30px);
+  box-shadow: 10px 10px 10px lightgray;
 }

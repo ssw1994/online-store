@@ -1,23 +1,77 @@
-import { Blog } from "./util";
+import { Blog, Vote } from "./util";
 
 export const initialState = {
-  blogList: [
-    new Blog(
-      "useReducer hook in React",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    ),
-    new Blog(
-      "useReducer hook in React",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    ),
-    new Blog(
-      "useReducer hook in React",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    ),
-    new Blog(
-      "useReducer hook in React",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    ),
-  ],
+  blogList: [],
 };
-export default function BlogReducer(state = [], action) {}
+export default function BlogReducer(state = [], action) {
+  switch (action.type) {
+    case "SAVE_BLOG": {
+      return {
+        ...state,
+        blogList: [...state.blogList, action.payload],
+      };
+    }
+    case "UPVOTE": {
+      return {
+        ...state,
+        blogList: [
+          ...state.blogList.map((blog) => {
+            if (blog.blogId === action.payload.blogId) {
+              return {
+                ...blog,
+                statistics: {
+                  ...blog.statistics,
+                  upvotes: [
+                    ...blog.statistics.upvotes,
+                    new Vote(action.userId),
+                  ],
+                },
+              };
+            }
+            return { ...blog };
+          }),
+        ],
+      };
+    }
+    case "DOWNVOTE": {
+      return {
+        ...state,
+        blogList: [
+          ...state.blogList.map((blog) => {
+            if (blog.blogId === action.payload.blogId) {
+              return {
+                ...blog,
+                statistics: {
+                  ...blog.statistics,
+                  downvotes: [
+                    ...blog.statistics.downvotes,
+                    new Vote(action.userId),
+                  ],
+                },
+              };
+            }
+            return { ...blog };
+          }),
+        ],
+      };
+    }
+    case "COMMENT": {
+      return {
+        ...state,
+        blogList: [
+          ...state.blogList.map((blog) => {
+            if (blog.blogId === action.payload.blogId) {
+              return {
+                ...blog,
+                comments: [...blog.comments, action.payload],
+              };
+            }
+            return { ...blog };
+          }),
+        ],
+      };
+    }
+    default:
+      return { ...state };
+  }
+}

@@ -64,7 +64,7 @@ export default function TutorialLayout() {
         })}
       </div>
 
-      <div style={{ position: "relative", top: "50px", overflowY: "scroll" }}>
+      <div style={{ position: "relative", top: "50px", overflowY: "hidden" }}>
         <Outlet />
       </div>
     </div>

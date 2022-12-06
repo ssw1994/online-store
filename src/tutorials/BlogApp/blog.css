@@ -11,7 +11,7 @@
 
 .blog-card {
   width: 100%;
-  height: 300px;
+  min-height: 300px;
   box-shadow: 10px 5px 10px wheat;
   border: 1px solid gray;
 }
@@ -148,4 +148,20 @@ textarea {
 
 .comment-form .action-btns button {
   margin: 0 15px;
+}
+
+.comment-item-card {
+  display: flex;
+  background-color: whitesmoke;
+  flex-direction: column;
+  padding: 15px;
+  margin: 15px;
+}
+
+.comment-item-card .comment-details {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
 }

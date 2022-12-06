@@ -35,11 +35,15 @@ export class Comment {
   username;
   comments;
   blogId;
+  createdAt;
+  updatedAt;
   constructor(description = "", username = "", blogId = "") {
     this.commentId = `COMMENT_ID_${Date.now()}`;
     this.description = description;
     this.username = username;
     this.blogId = blogId;
     this.comments = [];
+    this.createdAt = Date.now();
+    this.updatedAt = Date.now();
   }
 }

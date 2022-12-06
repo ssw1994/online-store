@@ -71,6 +71,10 @@ export default function BlogReducer(state = [], action) {
         ],
       };
     }
+
+    case "COMMENT_FEEDBACK": {
+      return { ...state };
+    }
     default:
       return { ...state };
   }

@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import ENVIRONMENT from "dotenv";
+import cors from "cors";
 //const router = express.Router();
 //import http from "http";
 ENVIRONMENT.config();
@@ -9,7 +10,7 @@ ENVIRONMENT.config();
 const app = express();
 const port = process.env.PORT || 3005;
 app.use(bodyParser.json());
-
+app.use(cors());
 mongoose
   .connect(process.env.PROD_DB_URL)
   .then((response) => {
@@ -38,6 +39,13 @@ app.get("/persons", (req, res) => {
   } else {
     res.send(persons);
   }
+});
+
+app.post("/person/add", (req, res) => {
+  const payload = req.body;
+  console.log(payload);
+  persons.push(payload);
+  res.send({ message: "Person added" });
 });
 
 app.get("/", (req, res) => {

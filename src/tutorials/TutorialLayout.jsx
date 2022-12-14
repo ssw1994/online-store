@@ -15,6 +15,12 @@ export default function TutorialLayout() {
       active: false,
       id: 2,
     },
+    {
+      appName: "RestApi",
+      path: "/tutorials/rest",
+      active: false,
+      id: 3,
+    },
   ]);
   const markActive = (app) => {
     updateApps((prev) => {

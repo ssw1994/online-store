@@ -16,6 +16,7 @@ import config from "./config";
 import { ContactDictionary } from "./tutorials/diary/ContactDictionay";
 import TutorialLayout from "./tutorials/TutorialLayout";
 import BlogApp from "./tutorials/BlogApp/BlogApp";
+import { RestApi } from "./tutorials/RestApis/RestApis";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/tutorials" element={<TutorialLayout />}>
               <Route path="dictionary" element={<ContactDictionary />}></Route>
               <Route path="blogs" element={<BlogApp />}></Route>
+              <Route path="rest" element={<RestApi />}></Route>
             </Route>
             <Route path="/" element={<AppLayout />}>
               <Route path="/" element={<HomeRouter />}></Route>

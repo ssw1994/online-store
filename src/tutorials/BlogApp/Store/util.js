@@ -1,3 +1,14 @@
+export class Vote {
+  userId;
+  createdAt;
+  updatedAt;
+
+  constructor(userId) {
+    this.userId = userId;
+    this.createdAt = Date.now();
+    this.updatedAt = Date.now();
+  }
+}
 export class Blog {
   blogId;
   title;
@@ -9,17 +20,13 @@ export class Blog {
     this.title = title;
     this.description = description;
     this.statistics = {
-      upvote: 10,
-      downvote: null,
+      upvotes: [],
+      downvotes: [],
     };
-    this.comments = [
-      new Comment(
-        "In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided",
-        "esachin",
-        this.blogId
-      ),
-    ];
+    this.comments = [];
   }
+
+  findName() {}
 }
 
 export class Comment {
@@ -28,11 +35,15 @@ export class Comment {
   username;
   comments;
   blogId;
-  constructor(description, username, blogId) {
+  createdAt;
+  updatedAt;
+  constructor(description = "", username = "", blogId = "") {
     this.commentId = `COMMENT_ID_${Date.now()}`;
     this.description = description;
     this.username = username;
     this.blogId = blogId;
     this.comments = [];
+    this.createdAt = Date.now();
+    this.updatedAt = Date.now();
   }
 }

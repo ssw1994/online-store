@@ -11,7 +11,7 @@
 
 .blog-card {
   width: 100%;
-  height: 300px;
+  min-height: 300px;
   box-shadow: 10px 5px 10px wheat;
   border: 1px solid gray;
 }
@@ -27,7 +27,7 @@
 }
 
 .blog-list .blog-item {
-  width: 33%;
+  width: 50%;
 }
 
 .blog-header {
@@ -39,7 +39,7 @@
 .blog-description {
   padding: 10px;
   max-height: 170px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .blog-actions {
@@ -52,17 +52,116 @@
   margin: 10px 5px;
 }
 
-.action-count::after{
+.action-count::after {
   content: attr(data-count);
-    position: relative;
-    left: 25px;
-    top: -25px;
-    background-color: yellow;
-    border: 1px solid red;
-    border-radius: 50%;
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-    color: red;
-    font-weight: bold;
+  position: relative;
+  left: 25px;
+  top: -25px;
+  background-color: yellow;
+  border: 1px solid red;
+  border-radius: 50%;
+  padding: 10px;
+  width: 30px;
+  height: 30px;
+  color: red;
+  font-weight: bold;
+}
+
+.modal-dialog {
+  position: fixed;
+  background: rgba(53, 52, 52, 0.9);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-content {
+  width: 30%;
+  height: 50%;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.blog-form input,
+textarea {
+  width: 100%;
+  height: 30px;
+}
+
+.blog-form textarea {
+  height: 80px;
+}
+
+.blog-form form > div {
+  margin: 10px 0;
+}
+
+.blog-form form > div:last-of-type {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.blog-form form > div:last-of-type button:first-of-type {
+  background: white;
+  border: 1px solid red;
+}
+
+.blog-form button[type="submit"] {
+  background: lightblue;
+}
+
+.close_btn {
+  position: relative;
+  top: -65px;
+  left: 205px;
+  background-color: lightcoral;
+}
+
+.comment-form textarea {
+  height: 50px;
+}
+
+.comment-form {
+  padding: 15px;
+  margin: 15px;
+  background: lightblue;
+}
+
+.comment-form .action-btns {
+  text-align: right;
+  margin-top: 15px;
+}
+
+.comment-form .action-btns button {
+  margin: 0 15px;
+}
+
+.comment-item-card {
+  display: flex;
+  background-color: whitesmoke;
+  flex-direction: column;
+  padding: 15px;
+  margin: 15px;
+}
+
+.comment-item-card .comment-details {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
 }

@@ -16,10 +16,16 @@ export default function TutorialLayout() {
       id: 2,
     },
     {
+      appName: "RestApi",
+      path: "/tutorials/rest",
+      active: false,
+      id: 3,
+    },
+    {
       appName: "Book Ticket",
       path: "/tutorials/movies",
       active: false,
-      id: 3,
+      id: 4,
     },
   ]);
   const markActive = (app) => {
@@ -70,7 +76,7 @@ export default function TutorialLayout() {
         })}
       </div>
 
-      <div style={{ position: "relative", top: "50px", overflowY: "scroll" }}>
+      <div style={{ position: "relative", top: "50px", overflowY: "hidden" }}>
         <Outlet />
       </div>
     </div>

@@ -15,6 +15,12 @@ export default function TutorialLayout() {
       active: false,
       id: 2,
     },
+    {
+      appName: "Book Ticket",
+      path: "/tutorials/movies",
+      active: false,
+      id: 3,
+    },
   ]);
   const markActive = (app) => {
     updateApps((prev) => {
